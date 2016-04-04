@@ -11,7 +11,12 @@
     {
       "dir" : "/share",
       "secret" : "{{ .Env.SECRET }}",
-      "known_hosts" : [ "{{ replace .Env.PEERS "," "\", \"" -1 }}" ]
+      "known_hosts" : [ "{{ replace .Env.PEERS "," "\", \"" -1 }}" ],
+      "use_relay_server" : false,
+      "use_tracker" : true,
+      "use_dht" : true,
+      "search_lan" : false,
+      "use_sync_trash" : true
     }
   ]
 }
