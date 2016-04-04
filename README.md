@@ -18,7 +18,6 @@ docker run -d --name syncer \
     -v /opt/btsync:/var/lib/btsync \
     -v /path/to/shared_folder:/share \
     -e SECRET=$secret \
-    -e NAME=my_share_name \
     -e PEERS=192.168.1.2:3369,192.168.1.3:3369 \
     viranch/btsync
 ```
