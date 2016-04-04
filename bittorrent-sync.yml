@@ -1,0 +1,12 @@
+bittorrent-sync:
+  image: 'rage/bittorrent-sync:latest'
+  environment:
+    - PEERS= # any known hosts "ip:port,ip:port"
+    - SECRET= #the secret-key to the share
+  hostname: my-bittorrent #desired hostname hostname
+  ports:
+    - '3369:3369/udp' #override host port if you want to run several shares/containers
+  restart: on-failure
+  volumes:
+    - '/opt/btsync/:/var/lib/btsync' #The pid-file stored on the host can not be shared between several instances, made each have its separate volumes if runinng several bt-syncs containers on a host.
+    - '/var/lib/btsync/shares/:/share'
